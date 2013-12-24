@@ -5,7 +5,6 @@
 // #include <iostream>
 // using namespace std;
 #include "main.h"
-#include "test.h"
 
 typedef struct _MY_MSG{
 	wchar_t vboxname[100];
