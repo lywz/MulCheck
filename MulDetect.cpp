@@ -292,6 +292,7 @@ int main(int argc, char* argv[])
 {
 	// 	nmainThreadId = GetCurrentThreadId();
 	// 线程间的通信  用信号量还是消息？
+	// 消息跟信号量应该没什么区别吧
 
 	HANDLE hthreadDispatch = (HANDLE)_beginthreadex(NULL,0,&DispatchTackThread,NULL,0,&nThreadDispatch);
 
