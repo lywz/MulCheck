@@ -1,10 +1,10 @@
-#include <Windows.h>
-#include <string>
-#include <list>
-#include <process.h>
-#include <iostream>
-using namespace std;
-
+// #include <Windows.h>
+// #include <string>
+// #include <list>
+// #include <process.h>
+// #include <iostream>
+// using namespace std;
+#include "main.h"
 
 typedef struct _MY_MSG{
 	wchar_t vboxname[100];
