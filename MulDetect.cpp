@@ -19,7 +19,7 @@ typedef struct _VBOX_STATE{
 	DWORD Reserver;
 	DWORD Reserver2;
 }VBOX_STATE,pVBOX_STATE;
-list<VBOX_STATE> list_vbox_state;   //Ó¦¸Ã³õÊ¼»¯
+list<VBOX_STATE> list_vbox_state;   //Ó¦ï¿½Ã³ï¿½Ê¼ï¿½ï¿½
 unsigned nThreadDispatch;
 unsigned nThreadvbox;
 unsigned nthreadMonitor;
@@ -48,12 +48,12 @@ unsigned _stdcall ControlVboxThread(void * param)
 			{
 			case VBOXSTART_MSG:
 				{	
-					// ´Ë´¦Îª¿ªÆôÃû×ÖµÄĞéÄâ»ú                                                                              £¿£¿£¿£¿£¿£¿£¿£¿£¿£¿ Î´½â¾ö
+					// ï¿½Ë´ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½                                                                              ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Î´ï¿½ï¿½ï¿½
 					break;
 				}
 			case VBOXSTOP_MSG:
 				{
-					//´Ë´¦Îª¹Ø±ÕÃû×ÖµÄĞéÄâ»ú                                                                              £¿£¿£¿£¿£¿£¿£¿£¿£¿£¿ Î´½â¾ö
+					//ï¿½Ë´ï¿½Îªï¿½Ø±ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½                                                                              ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Î´ï¿½ï¿½ï¿½
 
 					PostThreadMessage(nThreadDispatch,VBOXFREE_MSG,(WPARAM)&mymsg_vbox,NULL);
 					PostThreadMessage(nthreadHandle,HANDLERESULT_MSG,(WPARAM)&mymsg_vbox,NULL);
@@ -61,7 +61,7 @@ unsigned _stdcall ControlVboxThread(void * param)
 				}
 			case THREADTERMINATE_MSG:
 				{
-					//´Ë´¦Îª¹Ø±ÕËùÓĞĞéÄâ»ú                                                                              £¿£¿£¿£¿£¿£¿£¿£¿£¿£¿ Î´½â¾ö
+					//ï¿½Ë´ï¿½Îªï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½                                                                              ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Î´ï¿½ï¿½ï¿½
 				}
 			}
 		}
@@ -83,7 +83,7 @@ unsigned _stdcall HandleResultThread(void * param)
 			{
 			case HANDLERESULT_MSG:
 				{	
-					// ´ËÎª´¦ÀíºóÌ¨½á¹û                                                                                £¿£¿£¿£¿£¿£¿£¿£¿£¿£¿ Î´½â¾ö
+					// ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½ï¿½                                                                                ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Î´ï¿½ï¿½ï¿½
 					break;
 				}
 			case THREADTERMINATE_MSG:
@@ -158,7 +158,7 @@ unsigned _stdcall DispatchTackThread(void * param)
 					MY_MSG mymsg_dispatch;
 					memset(&mymsg_dispatch,0,sizeof(MY_MSG));
 					memcpy((void*)&mymsg_dispatch,(void*)msg.wParam,sizeof(MY_MSG));
-					// ĞèÒªÅĞ¶ÏÊÇ·ñÓĞĞéÄâ»ú¿ÕÏĞ
+					// ï¿½ï¿½Òªï¿½Ğ¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					for (list<VBOX_STATE>::iterator it = list_vbox_state.begin(); it != list_vbox_state.end(); it++)
 					{
 						if (it->state==true)
@@ -257,18 +257,18 @@ unsigned _stdcall FileMonitorThread(void * param)
 
 			case FILE_ACTION_REMOVED:
 				{
-					//printf("Directory/File removed £¨É¾³ıÎÄ¼ş£©- \r\n");
+					//printf("Directory/File removed ï¿½ï¿½É¾ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½- \r\n");
 					break; 
 				}
 
 			case FILE_ACTION_MODIFIED: 
 				{
-					//printf("Directory/File modified £¨ĞŞ¸ÄÎÄ¼şÄÚÈİ£©- \r\n");                   ????????????????????????´Ë´¦Ó¦¸Ã¿¼ÂÇÎÄ¼şÃûÏàÍ¬ßÂÌæ´úµÄÇé¿ö
+					//printf("Directory/File modified ï¿½ï¿½ï¿½Ş¸ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½İ£ï¿½- \r\n");                   ????????????????????????ï¿½Ë´ï¿½Ó¦ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					break; 
 				}
 			case FILE_ACTION_RENAMED_OLD_NAME: 
 				{
-					//printf("Directory/File old name £¨ĞŞ¸ÄÎÄ¼şÃû×Ö£©- \r\n");                         
+					//printf("Directory/File old name ï¿½ï¿½ï¿½Ş¸ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ö£ï¿½- \r\n");                         
 					break; 
 				}
 			case FILE_ACTION_RENAMED_NEW_NAME: 
@@ -291,6 +291,7 @@ unsigned _stdcall FileMonitorThread(void * param)
 int main(int argc, char* argv[])
 {
 	// 	nmainThreadId = GetCurrentThreadId();
+	// çº¿ç¨‹é—´çš„é€šä¿¡  ç”¨ä¿¡å·é‡è¿˜æ˜¯æ¶ˆæ¯ï¼Ÿ
 
 	HANDLE hthreadDispatch = (HANDLE)_beginthreadex(NULL,0,&DispatchTackThread,NULL,0,&nThreadDispatch);
 
